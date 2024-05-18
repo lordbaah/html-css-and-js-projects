@@ -7,7 +7,6 @@
 }
 
 body{
-  /* background: rgb(89,160,219); */
   background: linear-gradient(279deg, rgba(89,160,219,1) 0%, rgba(211,74,221,1) 60%);
   font-family: "Roboto", sans-serif;
   padding: 2rem 1rem;
@@ -22,14 +21,16 @@ img {
 .container {
   max-width: 600px;
   background: rgba(255,255,255,0.45);
-  /* -webkit-backdrop-filter: blur(10px); */
   backdrop-filter: blur(10px);
   padding: 1.5rem 1rem;
   margin: 0 auto;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
   
 .icon-wrapper {
-  /* margin-top: 1.5rem; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,16 +49,16 @@ img {
   width: 100%;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   height: 50px;
+  border-radius: 4px;
 }
   
 .input {
   padding: .5em 1em;
   color: #fff;
-  font-size: 15px;
-  border: none;
+  border: 0;
   background-color: transparent;
   width: 70%;
-  height: 100%;
+  height: 95%;
   font-family: inherit;
   font-size: 1.2rem;
 }
@@ -67,13 +68,13 @@ img {
   border: none;
   background-color: #5e4dcd;
   color: #fff;
-  font-size: 15px;
   cursor: pointer;
   transition: background-color .3s ease-in-out;
   width: 30%;
   height: 100%;
   font-family: inherit;
   font-size: 1.2rem;
+  border-radius: 4px;
 }
   
 .button--submit:hover {
@@ -82,7 +83,8 @@ img {
   
 .input:focus, .input:focus-visible {
   border-color: #3898EC;
-  outline: none;
+  /* outline: none; */
+  outline: 1px solid #3898EC;
 }
 
 .weather-result{
@@ -139,6 +141,13 @@ img {
 .feels-like{
   color: #333;
   font-size: 1.3rem;
+  text-align: center;
+}
+
+.local-time{
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .details_wrapper{
@@ -176,12 +185,13 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 
 /* animation */
 .weather-img{
-  animation: myAnim 5s ease 1s infinite normal both;
+  animation: myAnim 2s ease 1s normal both;
 }
 
 @keyframes myAnim {
@@ -212,16 +222,133 @@ img {
 	}
 }
 
-@keyframes weatherAnim {
-	0% {
-		opacity: 0;
-		transform: translateY(250px);
-	}
 
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
+/*--------- loader ---------------*/
+@-webkit-keyframes loader {
+  0%,
+  20%,
+  80%,
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  30%,
+  70% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes loader {
+  0%,
+  20%,
+  80%,
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  30%,
+  70% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.loader {
+  display: none;
+  height: 24px;
+  position: relative;
+  width: 24px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.loader.show{
+  display: block;
+}
+
+.loader div {
+  -webkit-animation: loader 2.1s infinite backwards;
+  animation: loader 2.1s infinite backwards;
+  background: #f3f3f3;
+  height: 12px;
+  margin-top: 6px;
+  position: absolute;
+  width: 24px;
+}
+
+.loader div:after, .loader div:before {
+  content: '';
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.loader div:after {
+  top: -6px;
+  border-bottom: 6px solid #f3f3f3;
+}
+
+.loader div:before {
+  bottom: -6px;
+  border-top: 6px solid #f3f3f3;
+}
+
+.loader div:nth-child(1) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  left: -28px;
+  top: 0;
+}
+
+.loader div:nth-child(2) {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+  left: -14px;
+  top: 22px;
+}
+
+.loader div:nth-child(3) {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  left: 14px;
+  top: 22px;
+}
+
+.loader div:nth-child(4) {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  left: 28px;
+  top: 0;
+}
+
+.loader div:nth-child(5) {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  left: 14px;
+  top: -22px;
+}
+
+.loader div:nth-child(6) {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  left: -14px;
+  top: -22px;
+}
+
+.loader div:nth-child(7) {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+  left: 0;
+  top: 0;
 }
 
 
