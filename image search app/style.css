@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Lexend", sans-serif;
+}
+
+body{
+    background: #efb8ec;
 }
 
 img{
@@ -13,15 +20,17 @@ img{
 }
 
 img:hover{
-    translate: 5px;
+    transform: translateY(3px);
 }
 
 h1{
-    color: #fff;
+    color: #fdf6fd;
 }
+
 
 .app-head{
     text-align: center;
+    margin-top: 2rem;
 }
 
 .search-container{
@@ -29,32 +38,31 @@ h1{
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    width: 400px;
+    max-width: 400px;
     margin: 0 auto;
     margin-top: 1rem;
 }
 
 .search-box{
-    padding: 1rem;
-    border: none;
-    outline: none;
-    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    border: 0;
+    outline: 0;
+    border-radius: 32px;
 }
 
 .search-btn{
-    padding: 1rem;
-    border: none;
-    outline: none;
-    background: #6093db;
-    color: #fff;
+    padding: 1rem 1.5rem;
+    border: 0;
+    outline: 0;
+    background: #ac3ea3;
+    color: #fdf6fd;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 32px;
 }
 
 .container{
     max-width: 1440px;
     margin: 0 auto;
-    background-color: #4f5379;
     text-align: center;
     padding: 20px;
 
@@ -65,16 +73,23 @@ h1{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 }
 
 .show-more-btn{
     display: none;
-    padding: 1rem;
-    border: none;
-    outline: none;
-    background: #6093db;
-    color: #fff;
+    padding: 1rem 1.5rem;
+    border: 0;
+    outline: 0;
+    background: #ac3ea3;
+    color: #fdf6fd;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 32px;
+    margin: 0 auto;
+}
+
+@media (max-width: 500px){
+    img{
+        height: auto;
+    }
 }
