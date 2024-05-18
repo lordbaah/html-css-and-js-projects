@@ -37,7 +37,6 @@ async function getWeatherData(cityName) {
         const countryCode = data.sys.country;
         const countryName = await getCountryName(countryCode);
         let weatherIcon = data.weather[0].icon;
-        console.log(data);
 
         const localTime = getLocalTime(data.timezone);
 
