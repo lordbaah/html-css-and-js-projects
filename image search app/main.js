@@ -22,24 +22,12 @@ async function searchImages(){
     }
 
     const results = data.results;
-    console.log(results);
 
     results.map((result) => {
         const image = document.createElement("img");
         image.src = result.preview_photos[0].urls.small;
-        // image.src = result.cover_photo.urls.full;
-        const imageLink = document.createElement("a");
-        imageLink.href = result.links.html;
-        imageLink.target ="_blank";
-
-        imageLink.appendChild(image);
-
+        image.alt = result.cover_photo.alt_description;
         searchResults.appendChild(image);
-
-        // const description = document.createElement("a");
-        // description.text = result.preview_photos[0].slug;
-        // description.href = result.links.html;
-        // searchResults.appendChild(description);
     })
 
     searchMorebtn.style.display = "block"
